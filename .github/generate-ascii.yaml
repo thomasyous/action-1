@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v4
 
       # Step 2: Install the cowsay utility using apt
-      - name: Install cowsay Program
-        run: sudo apt-get install cowsay -y
+      - name: Install Cowsay Program
+        run: sudo apt-get update && sudo apt-get install cowsay -y
 
       # Step 3: Use cowsay with the "dragon" template to generate ASCII art
       # and append the output to a file named dragon.txt

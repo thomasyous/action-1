@@ -1,0 +1,38 @@
+
+# Name of the workflow displayed in the GitHub Actions UI
+name: Generate ASCII Artwork
+
+# Trigger the workflow on every push to the repository
+on:
+  push
+
+jobs:
+  ascii_job:
+    # Run this job on the latest Ubuntu environment
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository code into the runner
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      # Step 2: Install the cowsay utility using apt
+      - name: Install Cowsay Program
+        run: sudo apt-get install cowsay -y
+
+      # Step 3: Use cowsay with the "dragon" template to generate ASCII art
+      # and append the output to a file named dragon.txt
+      - name: Execute Cowsay CMD
+        run: cowsay -f dragon "run for cover, I am a DRAGON ....RAWR" >> dragon.txt
+
+      # Step 4: Search for the word "dragon" in the output file to confirm content
+      - name: Test File Exists
+        run: grep -i "dragon" dragon.txt
+
+      # Step 5: Display the contents of the output file
+      - name: Read File
+        run: cat dragon.txt
+
+      # Step 6: List all files in the current working directory
+      - name: List Repo Files
+        run: ls -ltra

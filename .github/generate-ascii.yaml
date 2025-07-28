@@ -34,5 +34,5 @@ jobs:
         run: cat dragon.txt
 
       # Step 6: List all files in the current working directory
-      - name: List Repo Files
+      - name: List Repo files
         run: ls -ltra

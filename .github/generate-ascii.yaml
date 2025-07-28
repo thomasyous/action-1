@@ -21,7 +21,7 @@ jobs:
 
       # Step 3: Use cowsay with the "dragon" template to generate ASCII art
       # and append the output to a file named dragon.txt
-      - name: Execute cowsay CMD
+      - name: Execute Cowsay CMD
         run: cowsay -f dragon "run for cover, I am a DRAGON ....RAWR" >> dragon.txt
 
       # Step 4: Search for the word "dragon" in the output file to confirm content
